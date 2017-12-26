@@ -5,7 +5,7 @@ import React from 'react'
 import Composition from 'plurishing-shared/dist/components/views/dynamic/Composition';
 import LinkProvider from '../components/LinkProvider';
 
-import data from '../static/data.json';
+import data from '../static/data/data.json';
 
 export default class MyPage extends React.Component {
 
