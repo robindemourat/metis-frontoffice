@@ -1,13 +1,22 @@
 
 
-import React from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 
 import Composition from 'plurishing-shared/dist/components/views/dynamic/Composition';
 import LinkProvider from '../components/LinkProvider';
 
 import data from '../static/data/data.json';
 
-export default class MyPage extends React.Component {
+export default class MyPage extends Component {
+
+  static childContextTypes = {
+    getAssetUri: PropTypes.func
+  }
+
+  getChildContext = () => ({
+    getAssetUri: asset => `/static/data/${asset._id}/${asset.filename}`
+  })
 
   render () {
     const {
