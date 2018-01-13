@@ -1,6 +1,0 @@
-
-          window.__NEXT_REGISTER_PAGE('/', function() {
-            var comp = module.exports=webpackJsonp([5],{989:function(e,t,u){e.exports=u(990)},990:function(e,t,u){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=s(u(20)),o=s(u(10)),l=s(u(11)),a=s(u(21)),r=s(u(22)),f=s(u(2)),d=(s(u(390)),s(u(991))),i=s(u(389)),c=s(u(395));function s(e){return e&&e.__esModule?e:{default:e}}var m=function(e){function t(){return(0,o.default)(this,t),(0,a.default)(this,(t.__proto__||(0,n.default)(t)).apply(this,arguments))}return(0,r.default)(t,e),(0,l.default)(t,[{key:"render",value:function(){return f.default.createElement(i.default,null,f.default.createElement(d.default,{montage:c.default.montage,compositions:c.default.compositions}))}}]),t}(f.default.Component);t.default=m},991:function(e,t,u){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=l(u(4)),o=l(u(310));function l(e){return e&&e.__esModule?e:{default:e}}t.default=function(e){var t=e.montage,u=e.compositions;return n.default.createElement("section",null,n.default.createElement(o.default,{montage:t,compositions:u}),n.default.createElement("h2",null,"Home"))}}},[989]);
-            return { page: comp.default }
-          })
-        

@@ -1,30 +1,32 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-let defaultStyle;
-let defaultLocale;
+import defaultStyle from './assets/apa';
+import defaultLocale from './assets/english-locale';
+
 let style;
+let fs;
+let resolve;
 
 const isBrowser = new Function('try {return this===window;}catch(e){ return false;}');
 
 const inBrowser = isBrowser();
 
 if (inBrowser) {
-  defaultStyle = require('./assets/apa.csl');
-  defaultLocale = require('./assets/english-locale.xml');
   style = require('plurishing-shared/dist/style.css')
+/**
+ * @todo fix bug in loading css styles server-side
+ */
 } else {
-  const fs = require('fs');
-  const resolve = require('path').resolve;
-  defaultStyle = fs.readFileSync(resolve(__dirname + '/assets/apa.csl'));
-  defaultLocale = fs.readFileSync(resolve(__dirname + '/assets/english-locale.xml'));
-  style = fs.readFileSync(resolve(__dirname + 'plurishing-shared/dist/style.css'));
+  // fs = require('fs');
+  // resolve = require('path').resolve;
+  // style = require('plurishing-shared/dist/style.css')
+  // style = fs.readFile(resolve(__dirname + '/node_modules/plurishing-shared/dist/style.css'));
 }
-
-// import style from 'plurishing-shared/dist/components/views/dynamic/ArticleTemplate.scss';
 
 
 export default class GlobalsProvider extends Component {
+
   static childContextTypes = {
     citationStyle: PropTypes.string,
     citationLocale: PropTypes.string,
@@ -37,6 +39,25 @@ export default class GlobalsProvider extends Component {
     renderingMode: 'web',
   });
 
+  // static async getInitialProps({ req }) {
+  //   console.log('in browser', inBrowser);
+  //   if (!inBrowser) {
+  //     console.log('in get initial props');
+  //     const style = await new Promise((resolve, reject) => {
+  //       console.log('in promise')
+  //       fs.readFile(resolve(__dirname + 'plurishing-shared/dist/style.css'), (error, str) => {
+  //         if (error) {
+  //           reject(error)
+  //         } else {
+  //           resolve(str);
+  //         }
+  //       })
+  //     });
+  //     return {style};
+  //   }
+  //   return {};
+  // }
+
 
   render() {
     const {
@@ -47,11 +68,31 @@ export default class GlobalsProvider extends Component {
     return (
       <section className="GlobalsProvider">
         {children}
+        {
+          !inBrowser &&
+          <section
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'fixed',
+              textAlign : 'center',
+              background: 'white',
+              display: 'flex',
+              flexFlow: 'row nowrap',
+              alignItems: 'center',
+              justifyContent: 'center',
+              left: 0,
+              top: 0,
+              fontFamily: 'open-sans, sans-serif'
+            }}
+          >
+            <img src="/static/assets/loading.gif" />
+          </section>
+        }
         <style>
           ${style}
         </style>
       </section>
     )
   }
-
 }

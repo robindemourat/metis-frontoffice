@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   webpack: function (config, {dev}) {
 
+
     // use uglifyjs
     for (let index = 0; index < config.plugins.length; index += 1) {
       if (config.plugins[index].constructor.name === "UglifyJsPlugin") {

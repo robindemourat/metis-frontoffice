@@ -1,5 +1,4 @@
 
-
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 
@@ -9,7 +8,7 @@ import GlobalsProvider from '../components/GlobalsProvider';
 
 import data from '../static/data/data.json';
 
-export default class MyPage extends Component {
+export default class CompositionPage extends Component {
 
   static childContextTypes = {
     getAssetUri: PropTypes.func
@@ -47,3 +46,5 @@ export default class MyPage extends Component {
     )
   }
 }
+
+
