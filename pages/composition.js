@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Composition from 'plurishing-shared/dist/components/views/dynamic/Composition';
 import LinkProvider from '../components/LinkProvider';
+import GlobalsProvider from '../components/GlobalsProvider';
 
 import data from '../static/data/data.json';
 
@@ -29,18 +30,20 @@ export default class MyPage extends Component {
       }
     } = this;
     const parameters = data.montage.data.compositions[id];
-    const composition = data.compositions[parameters.target_composition_id];
+    const composition = data.compositions.find(c => c._id === parameters.target_composition_id);
     return (
-      <LinkProvider>
-        <Composition
-          parameters={parameters}
-          composition={composition}
-          compositions={data.compositions}
-          montage={data.montage}
-          assets={data.assets}
-          resources={data.resources}
-        />
-      </LinkProvider>
+      <GlobalsProvider>
+        <LinkProvider>
+          <Composition
+            parameters={parameters}
+            composition={composition}
+            compositions={data.compositions}
+            resources={data.resources}
+            montage={data.montage}
+            assets={data.assets}
+          />
+        </LinkProvider>
+      </GlobalsProvider>
     )
   }
 }

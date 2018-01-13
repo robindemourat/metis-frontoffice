@@ -34,9 +34,10 @@ app.prepare()
     return app.render(req, res, '/index')
   })
 
+
   server.get('/composition/:id', (req, res) => {
     return app.render(req, res, '/composition', { id: req.params.id })
-  })
+  });
 
   server.post('/update', (req, res) => {
     /**

@@ -16,7 +16,9 @@
     "next": "latest",
     "plurishing-shared": "git+https://github.com/robindemourat/plurishing-shared.git",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "raw-loader": "^0.5.1"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
