@@ -1,7 +1,29 @@
-
+const fs = require('fs');
+const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  exportPathMap: function () {
+    const dataPath = path.resolve(__dirname + '/static/data/data.json');
+    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    return Object.assign(
+    {
+      "/": { page: "/" },
+    },
+    data.montage
+      .data
+      .compositions
+      .reduce((total, citation, index) => {
+        total['composition/' + index] = {
+          page: '/composition', 
+          query: {
+            id: index
+          }
+        };
+        return total;
+      }, {})
+    );
+  },
   webpack: function (config, {dev}) {
 
 

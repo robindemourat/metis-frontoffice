@@ -10,14 +10,6 @@ import data from '../static/data/data.json';
 
 export default class CompositionPage extends Component {
 
-  static childContextTypes = {
-    getAssetUri: PropTypes.func
-  }
-
-  getChildContext = () => ({
-    getAssetUri: asset => `/static/data/${asset._id}/${asset.filename}`
-  })
-
   render () {
     const {
       props: {
@@ -33,14 +25,15 @@ export default class CompositionPage extends Component {
     return (
       <GlobalsProvider>
         <LinkProvider>
-          <Composition
-            parameters={parameters}
-            composition={composition}
-            compositions={data.compositions}
-            resources={data.resources}
-            montage={data.montage}
-            assets={data.assets}
-          />
+           <Composition
+             parameters={parameters}
+             composition={composition}
+             compositions={data.compositions}
+             resources={data.resources}
+             montage={data.montage}
+             assets={data.assets}
+             renderingMode={'web'}
+           />
         </LinkProvider>
       </GlobalsProvider>
     )

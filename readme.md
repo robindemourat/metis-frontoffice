@@ -46,9 +46,12 @@ Here how it is done step by step :
 * when receiving a request, it first verifies that the request body contains a proper `pwd` property, matching with the one defined in the config
 * then it copies all the received JSON data in a temp folder as a JSON file
 * then, after parsing new JSON data and its static files dependencies, it fetches all the static asset files needed to display the content and then also store them in a temp folder
-* (todo) at this step, the app is ready to display the new data in dev mode, it should be followed by a build step in prod mode
-* (todo) a last step would be to use next.js to build a static html website with the new data, and possibly upload it through FTP to a distant static public website (see how it can be done [here](https://github.com/peritext/peritext-server-garlic-flavoured/blob/master/peritext-generator-next/next.config.js#L13))
+* at this step, the app is ready to display the new data in dev mode, it follows with a build step to update the prod code
+* it then builds a static html website out of the new data, and  upload it through FTP to a distant static public website through the surge service
 
 Learn more about this procedure in `utils/update-data.js` source code file.
 
+## Licenses
 
+LGPL-3.0
+CECCIL-C

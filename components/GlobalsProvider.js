@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import defaultStyle from './assets/apa';
 import defaultLocale from './assets/english-locale';
 
+import WebNotePointerPointer from 'plurishing-shared/dist/components/views/dynamic/WebNotePointerPointer';
+import WebNoteContentPointer from 'plurishing-shared/dist/components/views/dynamic/WebNoteContentPointer';
+
 let style;
 let fs;
 let resolve;
@@ -31,12 +34,20 @@ export default class GlobalsProvider extends Component {
     citationStyle: PropTypes.string,
     citationLocale: PropTypes.string,
     renderingMode: PropTypes.string,
+
+    NotePointerPointer: PropTypes.func,
+    NoteContentPointer: PropTypes.func,
+    getAssetUri: PropTypes.func
   }
 
   getChildContext = () => ({
     citationStyle: defaultStyle,
     citationLocale: defaultLocale,
     renderingMode: 'web',
+    NotePointerPointer: WebNotePointerPointer,
+    NoteContentPointer: WebNoteContentPointer,
+
+    getAssetUri: asset => `/static/data/${asset._id}/${asset.filename}`
   });
 
   // static async getInitialProps({ req }) {

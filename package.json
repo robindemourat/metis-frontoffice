@@ -1,11 +1,13 @@
 {
   "name": "plurishing-frontoffice",
   "version": "0.0.1",
-  "license": "LGPL-3.0",
+  "license": "ISC",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "build-html": "next build && next export",
+    "deploy": "npm run build-html;cp CNAME out/CNAME; cp out/index.html out/200.html;cd out;echo \"\\n\\n\" | surge;cd .."
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -21,6 +23,5 @@
     "react-dom": "^16.2.0",
     "uglifyjs-webpack-plugin": "^1.1.6"
   },
-  "license": "ISC",
   "devDependencies": {}
 }

@@ -24,8 +24,9 @@ app.prepare()
   const server = express()
 
   server.use(cors())
+
   server.use(bodyParser.urlencoded({ extended: true }));
-  server.use(bodyParser.json());
+  server.use(bodyParser.json({limit: '300mb'}));
 
   server.use(cors())
 
