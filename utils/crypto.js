@@ -1,7 +1,6 @@
 /**
- * Metis-frontoffice
- * =======
- * Crypto utils
+ * This module exports several encryption-related functions
+ * @module metis-frontoffice/utils/crypto
  */
 const bcrypt = require('bcrypt');
 const saltRounds = 10;

@@ -1,3 +1,9 @@
+/**
+ * This module exports a react component that provides to its children
+ * various context objects + default css styles
+ * @module metis-frontoffice/components/GlobalsProvider
+ */
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -20,6 +26,11 @@ if (inBrowser) {
   style = require('metis-shared/dist/style.css') + '\n' + require('react-table/react-table.css')
 /**
  * @todo fix bug in loading css styles server-side
+ * @body right now css is not loaded server-side because of webpack-related issues. 
+ * Content is loaded nevertheless. 
+ * To avoid unstyled rendering to user for now template include a full-screen
+ * loading gif hiding unstyled content while waiting for the client
+ * to take the lead.
  */
 } else {
   // fs = require('fs');
@@ -83,6 +94,8 @@ export default class GlobalsProvider extends Component {
       <section className="GlobalsProvider">
         {children}
         {
+          // placeholder loading gif view
+          // for serverside/no-js rendering (see comments above)
           !inBrowser &&
           <section
             style={{

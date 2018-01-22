@@ -1,3 +1,9 @@
+/**
+ * This module exports a react component that provides to its children
+ * the default Link component
+ * @module metis-frontoffice/components/LinkProvider
+ */
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 

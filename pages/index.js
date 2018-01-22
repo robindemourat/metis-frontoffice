@@ -1,3 +1,7 @@
+/**
+ * This module exports a stateful component dedicated to render the home view
+ * @module metis-frontoffice/pages/index
+ */
 
 import React from 'react'
 import Link from 'next/link'

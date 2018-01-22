@@ -1,3 +1,9 @@
+/**
+ * This module exports a react component that provides
+ * a next-js compliant link component
+ * @module metis-frontoffice/components/Link
+ */
+
 import React from 'react';
 import Link from 'next/link'
 

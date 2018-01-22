@@ -1,3 +1,9 @@
+/**
+ * This module exports a function that handles the process
+ * of updating new data and deploy it to a static server
+ * @module metis-frontoffice/utils/update-data
+ */
+
 const {remove, ensureDir, writeFile, move} = require('fs-extra');
 const spawn = require('child_process').spawn;
 const resolvePath = require('path').resolve;
@@ -50,37 +56,7 @@ module.exports = function updateData(data) {
             .catch(reject);
           })
         )
-      }, Promise.resolve())
-      // const toResolve = data.assets.map(asset => {        
-        // return new Promise((resolve, reject) => {
-        // store each asset in separate path
-            // const filename = asset.filename;
-            // const url = `${dataProviderBaseUri}asset/${asset._id}`;
-            // const path = `${staticDir}/temp/${asset._id}/`;
-            // console.log('with asset ', asset._id);
-            // ensureDir(path)
-            // // get asset data
-            // .then(() => {
-            //   console.log('fetch ', url);
-            //   return axios({
-            //     method:'get',
-            //     url,
-            //   })
-            // })
-            // // write file locally
-            // .then(data => {
-            //   console.log('fetch success: ', url, filename);
-            //   return writeFile(`${path}${filename}`, data.data)
-            // })
-            // .then(resolve)
-            // .catch(reject);
-          // })
-      // });
-
-      // return Promise.all(toResolve)
-      // return toResolve.reduce((prev, cur, index) => {
-      //   return prev.then(cur).catch(e => console.log('error', e));
-      // }, Promise.resolve())
+      }, Promise.resolve());
     })
     // remove existing data
     .then(() => remove(`${staticDir}/data`))

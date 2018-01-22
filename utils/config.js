@@ -1,7 +1,7 @@
 /**
- * Metis-frontoffice
- * =======
- * Config utils
+ * This module exports a function providing the proper configuration object
+ * regarding process mode (production or development)
+ * @module metis-frontoffice/utils/config
  */
 const configMap = require('../config/config.map');
 

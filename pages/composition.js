@@ -1,3 +1,7 @@
+/**
+ * This module exports a stateful component dedicated to render a composition view
+ * @module metis-frontoffice/pages/composition
+ */
 
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
