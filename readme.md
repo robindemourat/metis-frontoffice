@@ -7,6 +7,9 @@ The application uses the [next.js](https://github.com/zeit/next.js) framework to
 
 It provides a specific routes map, and uses the dynamic components provided by the [`metis-shared`](https://github.com/robindemourat/metis-shared) module to display specific views with the react library.
 
+![Metis frontoffice screencast](https://github.com/robindemourat/metis-frontoffice/blob/master/screencast.gif?raw=true)
+![]()
+
 # Installation
 
 ```
