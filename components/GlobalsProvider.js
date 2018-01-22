@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import defaultStyle from './assets/apa';
 import defaultLocale from './assets/english-locale';
 
-import WebNotePointerPointer from 'plurishing-shared/dist/components/views/dynamic/WebNotePointerPointer';
-import WebNoteContentPointer from 'plurishing-shared/dist/components/views/dynamic/WebNoteContentPointer';
+import WebNotePointerPointer from 'metis-shared/dist/components/views/dynamic/WebNotePointerPointer';
+import WebNoteContentPointer from 'metis-shared/dist/components/views/dynamic/WebNoteContentPointer';
+
 
 let style;
 let fs;
@@ -16,17 +17,16 @@ const isBrowser = new Function('try {return this===window;}catch(e){ return fals
 const inBrowser = isBrowser();
 
 if (inBrowser) {
-  style = require('plurishing-shared/dist/style.css')
+  style = require('metis-shared/dist/style.css') + '\n' + require('react-table/react-table.css')
 /**
  * @todo fix bug in loading css styles server-side
  */
 } else {
   // fs = require('fs');
   // resolve = require('path').resolve;
-  // style = require('plurishing-shared/dist/style.css')
-  // style = fs.readFile(resolve(__dirname + '/node_modules/plurishing-shared/dist/style.css'));
+  // style = require('metis-shared/dist/style.css')
+  // style = fs.readFile(resolve(__dirname + '/node_modules/metis-shared/dist/style.css'));
 }
-
 
 export default class GlobalsProvider extends Component {
 
@@ -37,7 +37,8 @@ export default class GlobalsProvider extends Component {
 
     NotePointerPointer: PropTypes.func,
     NoteContentPointer: PropTypes.func,
-    getAssetUri: PropTypes.func
+    getAssetUri: PropTypes.func,
+    t: PropTypes.func,
   }
 
   getChildContext = () => ({
@@ -47,7 +48,9 @@ export default class GlobalsProvider extends Component {
     NotePointerPointer: WebNotePointerPointer,
     NoteContentPointer: WebNoteContentPointer,
 
-    getAssetUri: asset => `/static/data/${asset._id}/${asset.filename}`
+    getAssetUri: asset => `/static/data/${asset._id}/${asset.filename}`,
+
+    t: t => t,
   });
 
   // static async getInitialProps({ req }) {
@@ -56,7 +59,7 @@ export default class GlobalsProvider extends Component {
   //     console.log('in get initial props');
   //     const style = await new Promise((resolve, reject) => {
   //       console.log('in promise')
-  //       fs.readFile(resolve(__dirname + 'plurishing-shared/dist/style.css'), (error, str) => {
+  //       fs.readFile(resolve(__dirname + 'metis-shared/dist/style.css'), (error, str) => {
   //         if (error) {
   //           reject(error)
   //         } else {

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 
-import Composition from 'plurishing-shared/dist/components/views/dynamic/Composition';
+import Composition from 'metis-shared/dist/components/views/dynamic/Composition';
 import LinkProvider from '../components/LinkProvider';
 import GlobalsProvider from '../components/GlobalsProvider';
 

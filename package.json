@@ -1,5 +1,5 @@
 {
-  "name": "plurishing-frontoffice",
+  "name": "metis-frontoffice",
   "version": "0.0.1",
   "license": "ISC",
   "scripts": {
@@ -17,7 +17,7 @@
     "express": "^4.16.2",
     "fs-extra": "^5.0.0",
     "next": "latest",
-    "plurishing-shared": "git+https://github.com/robindemourat/plurishing-shared.git",
+    "metis-shared": "git+https://github.com/robindemourat/metis-shared.git",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

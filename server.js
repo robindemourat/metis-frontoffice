@@ -17,8 +17,6 @@ const {
   secret
 } = getConfig();
 
-
-
 app.prepare()
 .then(() => {
   const server = express()

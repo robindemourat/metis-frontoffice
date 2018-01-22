@@ -5,11 +5,19 @@ export default ({
   to,
   children
 }) => {
-  const url = '/' + to.view + '?id=' + to.index;
-  const as = '/' + to.view + '/' + to.index;
+  let url;
+  let as;
+  
+  if (to.view === 'composition') {
+    url = '/' + to.view + '?id=' + to.index;
+    as = '/' + to.view + '/' + to.index;
+  } else {
+    url = '/';
+    as = '/'
+  }
   return (
     <Link prefetch href={url} as={as}>
-      <a>{children}</a>
+      <a className="link">{children}</a>
     </Link> 
   );
 }
