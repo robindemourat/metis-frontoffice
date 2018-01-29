@@ -8,7 +8,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import defaultStyle from './assets/apa';
-import defaultLocale from './assets/english-locale';
+import defaultLocale from './assets/french-locale';
 
 import WebNotePointerPointer from 'metis-shared/dist/components/views/dynamic/WebNotePointerPointer';
 import WebNoteContentPointer from 'metis-shared/dist/components/views/dynamic/WebNoteContentPointer';
