@@ -5,6 +5,7 @@
 
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 import Composition from 'metis-shared/dist/components/views/dynamic/Composition';
 import LinkProvider from '../components/LinkProvider';
@@ -28,6 +29,9 @@ export default class CompositionPage extends Component {
     const composition = data.compositions.find(c => c._id === parameters.target_composition_id);
     return (
       <GlobalsProvider>
+        <Head>
+          <title>{composition && composition.metadata.title || 'Métis'} - {data.montage.metadata.title || 'composition'}</title>
+        </Head>
         <LinkProvider>
            <Composition
              parameters={parameters}
