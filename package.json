@@ -1,7 +1,7 @@
 {
   "name": "metis-frontoffice",
-  "version": "0.0.1",
-  "license": "ISC",
+  "version": "0.1.0",
+  "license": "lgpl-3.0",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
